@@ -49,7 +49,9 @@ const CartProvider: React.FC = ({ children }) => {
       );
 
       if (productExistsCart?.id) {
-        productExistsCart.quantity ? productExistsCart.quantity + 1 : 1;
+        productExistsCart.quantity = productExistsCart.quantity
+          ? productExistsCart.quantity + 1
+          : 1;
 
         const productsInCart = products.filter(
           productInCart => productInCart.id !== productExistsCart.id,
